@@ -8,9 +8,15 @@
 import UIKit
 import AVFoundation
 
+protocol QRCodeManagerDelegate: AnyObject {
+    func obtainString(_ string: String)
+}
+
 class QRCodeManager: NSObject {
     
     static let shared = QRCodeManager()
+    weak var delegate: QRCodeManagerDelegate?
+    weak var currentImage: UIImage?
     private override init() {}
     
     func detectQRCode(from output: AVCaptureMetadataOutput) {
@@ -18,6 +24,20 @@ class QRCodeManager: NSObject {
         output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
     }
     
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 20, y: 20)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+
+        return nil
+    }
 }
 
 extension QRCodeManager: AVCaptureMetadataOutputObjectsDelegate {
@@ -30,6 +50,7 @@ extension QRCodeManager: AVCaptureMetadataOutputObjectsDelegate {
             return
         }
         print(object.stringValue ?? "")
+        delegate?.obtainString(object.stringValue ?? "")
     }
     
 }

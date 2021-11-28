@@ -26,16 +26,26 @@ final class MainScreenViewController: UIViewController {
         button.addTarget(self, action: #selector(toCamera), for: .touchUpInside)
         return button
     }()
+    
+    private lazy var qrCodeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.bounds.size = CGSize(width: 300, height: 300)
+        imageView.center = view.center
+        imageView.backgroundColor = .clear
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         addSubviews()
         view.backgroundColor = .white
+        QRCodeManager.shared.delegate = self
         title = "Main"
     }
 
     private func addSubviews() {
+        view.addSubview(qrCodeImageView)
         view.addSubview(startScanButton)
     }
     
@@ -52,6 +62,14 @@ extension MainScreenViewController: MainScreenViewProtocol {
     func configureCameraLayer(_ layer: AVCaptureVideoPreviewLayer) {
         layer.frame = UIScreen.main.bounds
         view.layer.addSublayer(layer)
+    }
+    
+}
+
+extension MainScreenViewController: QRCodeManagerDelegate {
+    
+    func obtainString(_ string: String) {
+        qrCodeImageView.image = QRCodeManager.shared.generateQRCode(from: string)
     }
     
 }
