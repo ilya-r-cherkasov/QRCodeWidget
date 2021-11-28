@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		3B0BE98C2753E6B2000F066B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE98B2753E6B2000F066B /* AppDelegate.swift */; };
 		3B0BE98E2753E6B2000F066B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE98D2753E6B2000F066B /* SceneDelegate.swift */; };
-		3B0BE9902753E6B2000F066B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE98F2753E6B2000F066B /* ViewController.swift */; };
-		3B0BE9932753E6B2000F066B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0BE9912753E6B2000F066B /* Main.storyboard */; };
+		3B0BE9902753E6B2000F066B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE98F2753E6B2000F066B /* MainScreenViewController.swift */; };
 		3B0BE9952753E6B3000F066B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0BE9942753E6B3000F066B /* Assets.xcassets */; };
 		3B0BE9982753E6B3000F066B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0BE9962753E6B3000F066B /* LaunchScreen.storyboard */; };
+		3B0BE9A32753E941000F066B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE9A22753E941000F066B /* UIViewController.swift */; };
+		3B0BE9A82753EA6A000F066B /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE9A72753EA6A000F066B /* Navigatable.swift */; };
+		3B0BE9AB2753EC37000F066B /* QRCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BE9AA2753EC37000F066B /* QRCodeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B0BE9882753E6B2000F066B /* QRCodeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0BE98B2753E6B2000F066B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B0BE98D2753E6B2000F066B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B0BE98F2753E6B2000F066B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3B0BE9922753E6B2000F066B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B0BE98F2753E6B2000F066B /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		3B0BE9942753E6B3000F066B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B0BE9972753E6B3000F066B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B0BE9992753E6B3000F066B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B0BE9A22753E941000F066B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		3B0BE9A72753EA6A000F066B /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
+		3B0BE9AA2753EC37000F066B /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,81 @@
 		3B0BE98A2753E6B2000F066B /* QRCodeWidget */ = {
 			isa = PBXGroup;
 			children = (
-				3B0BE98B2753E6B2000F066B /* AppDelegate.swift */,
-				3B0BE98D2753E6B2000F066B /* SceneDelegate.swift */,
-				3B0BE98F2753E6B2000F066B /* ViewController.swift */,
-				3B0BE9912753E6B2000F066B /* Main.storyboard */,
-				3B0BE9942753E6B3000F066B /* Assets.xcassets */,
-				3B0BE9962753E6B3000F066B /* LaunchScreen.storyboard */,
-				3B0BE9992753E6B3000F066B /* Info.plist */,
+				3B0BE99F2753E848000F066B /* App */,
+				3B0BE9A52753EA50000F066B /* Helpers */,
+				3B0BE9A92753EC25000F066B /* Managers */,
+				3B0BE9AC2753EC6C000F066B /* Modules */,
+				3B0BE9AD2753ECA5000F066B /* Sources */,
 			);
 			path = QRCodeWidget;
+			sourceTree = "<group>";
+		};
+		3B0BE99F2753E848000F066B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9962753E6B3000F066B /* LaunchScreen.storyboard */,
+				3B0BE9992753E6B3000F066B /* Info.plist */,
+				3B0BE98B2753E6B2000F066B /* AppDelegate.swift */,
+				3B0BE98D2753E6B2000F066B /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3B0BE9A02753E851000F066B /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE98F2753E6B2000F066B /* MainScreenViewController.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		3B0BE9A12753E92D000F066B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9A22753E941000F066B /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3B0BE9A52753EA50000F066B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9A62753EA5A000F066B /* Protocols */,
+				3B0BE9A12753E92D000F066B /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3B0BE9A62753EA5A000F066B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9A72753EA6A000F066B /* Navigatable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3B0BE9A92753EC25000F066B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9AA2753EC37000F066B /* QRCodeManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		3B0BE9AC2753EC6C000F066B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9A02753E851000F066B /* MainScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		3B0BE9AD2753ECA5000F066B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BE9942753E6B3000F066B /* Assets.xcassets */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +196,6 @@
 			files = (
 				3B0BE9982753E6B3000F066B /* LaunchScreen.storyboard in Resources */,
 				3B0BE9952753E6B3000F066B /* Assets.xcassets in Resources */,
-				3B0BE9932753E6B2000F066B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +206,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0BE9902753E6B2000F066B /* ViewController.swift in Sources */,
+				3B0BE9A82753EA6A000F066B /* Navigatable.swift in Sources */,
+				3B0BE9AB2753EC37000F066B /* QRCodeManager.swift in Sources */,
+				3B0BE9902753E6B2000F066B /* MainScreenViewController.swift in Sources */,
 				3B0BE98C2753E6B2000F066B /* AppDelegate.swift in Sources */,
+				3B0BE9A32753E941000F066B /* UIViewController.swift in Sources */,
 				3B0BE98E2753E6B2000F066B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +218,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3B0BE9912753E6B2000F066B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B0BE9922753E6B2000F066B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3B0BE9962753E6B3000F066B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65HCRGU5FA;
-				INFOPLIST_FILE = QRCodeWidget/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeWidget/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +371,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65HCRGU5FA;
-				INFOPLIST_FILE = QRCodeWidget/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeWidget/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
