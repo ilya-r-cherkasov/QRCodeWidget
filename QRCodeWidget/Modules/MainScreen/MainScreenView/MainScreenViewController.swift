@@ -42,6 +42,12 @@ final class MainScreenViewController: UIViewController {
         view.backgroundColor = .white
         QRCodeManager.shared.delegate = self
         title = "Main"
+        
+        if let userDefaults = UserDefaults(suiteName: "groupe.qrCodeSuite"),
+           let data = userDefaults.object(forKey: "qrcode") as? Data {
+            let image = UIImage(data: data)
+            qrCodeImageView.image = image
+        }
     }
 
     private func addSubviews() {

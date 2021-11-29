@@ -32,11 +32,21 @@ class QRCodeManager: NSObject {
             let transform = CGAffineTransform(scaleX: 20, y: 20)
 
             if let output = filter.outputImage?.transformed(by: transform) {
-                return UIImage(ciImage: output)
+                let image = UIImage(ciImage: output)
+                writeImage(image)
+                return image
             }
         }
 
         return nil
+    }
+    
+    func writeImage(_ image: UIImage?) {
+        if let pngRepresentation = image?.pngData(),
+           let userDefaults = UserDefaults(suiteName: "groupe.qrCodeSuite") {
+            userDefaults.set(pngRepresentation, forKey: "qrcode")
+            userDefaults.synchronize()
+        }
     }
 }
 
