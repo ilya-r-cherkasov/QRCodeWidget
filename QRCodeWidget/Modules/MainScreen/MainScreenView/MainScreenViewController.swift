@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import WidgetKit
 
 protocol MainScreenViewProtocol: UIViewController {
     func configureCameraLayer(_ layer: AVCaptureVideoPreviewLayer)
@@ -43,7 +44,7 @@ final class MainScreenViewController: UIViewController {
         QRCodeManager.shared.delegate = self
         title = "Main"
         
-        if let userDefaults = UserDefaults(suiteName: "groupe.qrCodeSuite"),
+        if let userDefaults = UserDefaults(suiteName: "group.qrCodeSuite"),
            let data = userDefaults.object(forKey: "qrcode") as? Data {
             let image = UIImage(data: data)
             qrCodeImageView.image = image

@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import WidgetKit
 
 protocol QRCodeManagerDelegate: AnyObject {
     func obtainString(_ string: String)
@@ -43,9 +44,10 @@ class QRCodeManager: NSObject {
     
     func writeImage(_ image: UIImage?) {
         if let pngRepresentation = image?.pngData(),
-           let userDefaults = UserDefaults(suiteName: "groupe.qrCodeSuite") {
+           let userDefaults = UserDefaults(suiteName: "group.qrCodeSuite") {
             userDefaults.set(pngRepresentation, forKey: "qrcode")
             userDefaults.synchronize()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 }
